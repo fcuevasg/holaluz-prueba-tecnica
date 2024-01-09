@@ -22,7 +22,7 @@ function App() {
 	return (
 		<div className='anim-grad-box'>
 			<Cta></Cta>
-			<CupsInput dataState={dataState}></CupsInput>
+			<CupsInput dataState={setDataState}></CupsInput>
 			<div className='color-box '>
 				{data && data.client && data.supplyPoint && (
 					<div>

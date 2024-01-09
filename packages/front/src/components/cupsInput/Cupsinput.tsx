@@ -4,15 +4,15 @@ import { FaSearch } from 'react-icons/fa'
 import './style.scss'
 import { dataState } from '../../App'
 
-interface CupsInputProps {
-	dataState: [dataState | undefined, React.Dispatch<React.SetStateAction<dataState | undefined>>]
+export interface CupsInputProps {
+	dataState:  React.Dispatch<React.SetStateAction<dataState | undefined>>
 }
 
 export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 	//States
 	const [cups, setCups] = useState('')
 	const [sendValue, setsendValue] = useState('')
-	const [requestData, setData] = dataState
+	const  setData = dataState
 
 	const sendRequest = async () => {
 		let data
@@ -47,7 +47,7 @@ export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 			setsendValue(cups)
 			const { data, message } = await sendRequest()
 			setData({ ...data, message })
-			console.log(requestData)
+			
 		}
 	}
 
