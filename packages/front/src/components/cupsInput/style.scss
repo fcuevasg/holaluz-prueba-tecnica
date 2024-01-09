@@ -1,0 +1,37 @@
+.cups-input {
+  display: flex;
+  align-items: center;
+  margin-top: 1vh;
+  position: relative; /* Add this line */
+}
+
+.cups-input input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  padding-right: 30px; /* Add this line */
+}
+
+.cups-input label {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.cups-input .search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ccc;
+  color: #fff;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+
+.input-container{
+  margin-top: 2vh;
+}
