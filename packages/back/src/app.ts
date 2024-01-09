@@ -83,15 +83,8 @@ app.get('/api/getClients/', (req: Request, res: Response) => {
 		status: 200,
 	})
 })
-
-app.post('/api/getSupplyPoints', (req: Request, res: Response) => {
-	const { body } = req
-
-	console.log('body', body)
-
-	res.json({ message: '¡Hola desde el endpoint supply!', data: body })
-})
-
 app.listen(PORT, () => {
 	console.log(`Servidor escuchando en el puerto ${PORT}`)
 })
+
+export default app
