@@ -1,0 +1,10 @@
+.env
+node_modules
+yarn-error.log
+config/cache
+.vscode/settings.json
+.npmrc
+packages/backend/.npmrc
+packages/frontend/.npmrc
+packages/e2e/dist
+dist
