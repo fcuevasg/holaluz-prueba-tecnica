@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 import { FC } from 'react'
-import { FaSearch } from 'react-icons/fa'
-import './style.scss'
-
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 
@@ -10,6 +7,7 @@ import SearchIcon from '@mui/icons-material/Search'
 
 //TODO: change for interface file
 import { DataState } from '../../screens/Main/Main'
+import { InputAdornment } from '@mui/material'
 
 export interface CupsInputProps {
 	dataState: React.Dispatch<React.SetStateAction<DataState | undefined>>
@@ -55,20 +53,27 @@ export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 			<Box
 				component='form'
 				sx={{
-					'& > :not(style)': { m: 1, width: '25ch' },
+					'& > :not(style)': { m: 1, width: '30ch' },
 				}}
 				noValidate
 				autoComplete='off'>
-				<TextField id='Cups' label='CUPS number' variant='outlined' placeholder='Enter CUPS number' onKeyDown={handleKeyInput} value={cups} onChange={(e) => setCups(e.currentTarget.value)} />
-				<SearchIcon></SearchIcon>
+				<TextField
+					InputProps={{
+						startAdornment: (
+							<InputAdornment position='start'>
+								<SearchIcon />
+							</InputAdornment>
+						),
+					}}
+					id='Cups'
+					label='CUPS number'
+					variant='outlined'
+					placeholder='Enter CUPS number'
+					onKeyDown={handleKeyInput}
+					value={cups}
+					onChange={(e) => setCups(e.currentTarget.value)}
+				/>
 			</Box>
 		</>
 	)
 }
-
-/*
-onClick={async () => {
-						setsendValue(cups)
-						const { data, message } = await sendRequest()
-						setData({ ...data, message })
-					}}*/

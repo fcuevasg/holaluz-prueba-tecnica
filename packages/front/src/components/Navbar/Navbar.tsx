@@ -36,7 +36,7 @@ function NavBar() {
 	}
 
 	return (
-		<AppBar position='static'>
+		<AppBar position='static' style={{ background: 'linear-gradient(90deg, rgba(255,198,33,1) 0%, rgba(240,107,24,1) 50%, rgba(229,0,126,1) 100%)' }}>
 			<Container maxWidth='xl'>
 				<Toolbar disableGutters>
 					<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -71,7 +71,7 @@ function NavBar() {
 							))}
 						</Menu>
 					</Box>
-			
+
 					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 						{pages.map((page) => (
 							<Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>

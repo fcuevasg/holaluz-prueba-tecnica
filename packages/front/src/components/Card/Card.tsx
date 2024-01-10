@@ -1,6 +1,9 @@
 import React, { FC } from 'react'
 import { ClientData, SupplyPointData } from '../../types/data'
-
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import Typography from '@mui/material/Typography'
+import "./styles.scss"
 interface CardProps {
 	clientInfo?: ClientData
 	supplyPointInfo?: SupplyPointData
@@ -8,39 +11,115 @@ interface CardProps {
 	isElligible?: boolean
 }
 
-export const Card: FC<CardProps> = ({ clientInfo, supplyPointInfo, hasOffer, isElligible }) => {
+export const InfoCard: FC<CardProps> = ({ clientInfo, supplyPointInfo, hasOffer, isElligible }) => {
 	const elligableMsg = isElligible ? 'You can become part of the root revolution with the offer:' : 'You are not elligle to our rooftop products, sorry'
 	const offerType = hasOffer ? 'Basic discount, 5% discount ' : 'Standard offer, no discount'
 	return (
 		<div className='color-box '>
 			{clientInfo && supplyPointInfo && (
 				<div>
-					<div>
-						<h1> Client info: </h1>
-						<span>{clientInfo.full_name}</span>
-						<span>{clientInfo.address}</span>
-						<span>{clientInfo.cups}</span>
-						<span>{clientInfo.building_type}</span>
-						<span>{clientInfo.email}</span>
-						<span>{clientInfo.role}</span>
-					</div>
-					<div>
-						<h1> Supply info: </h1>
-						<span>{supplyPointInfo.cups}</span>
-						<span>P1: {supplyPointInfo.power.p1}</span>
-						<span>P2: {supplyPointInfo.power.p2}</span>
-						<span>{supplyPointInfo.invoiced_amount}</span>
-						<span>{supplyPointInfo.tariff}</span>
-						<div>
-							<span>Neighbours:</span>
-							{supplyPointInfo.neighbors.map((neighbour, index) => {
-								return <span key={index}>{neighbour}</span>
-							})}
-						</div>
+					<Typography gutterBottom variant='h5' component='div'>
+						{elligableMsg}
+					</Typography>
+					<Typography gutterBottom variant='h5' component='div'>
+						{offerType}
+					</Typography>
+					<Card sx={{ minWidth: 275, width: 500 }}>
+						<CardContent className="parent">
+							<div className="div1">
+								<Typography gutterBottom variant='h4' component='div'>
+									Client Info
+								</Typography>
+								<Typography variant='body1' color='text.primary'>
+									Name:
+									<Typography variant='body1' color='text.secondary'>
+										{clientInfo.full_name}
+									</Typography>
+								</Typography>
+								<Typography variant='body1' color='text.primary'>
+									Address:
+									<Typography variant='body1' color='text.secondary'>
+										{clientInfo.address}
+									</Typography>
+								</Typography>
+								<Typography variant='body1' color='text.primary'>
+									CUPS:
+									<Typography variant='body1' color='text.secondary'>
+										{clientInfo.cups}
+									</Typography>
+								</Typography>
+								<Typography variant='body1' color='text.primary'>
+									Building type:
+									<Typography variant='body1' color='text.secondary'>
+										{clientInfo.building_type}
+									</Typography>
+								</Typography>
+								<Typography variant='body1' color='text.primary'>
+									Email:
+									<Typography variant='body1' color='text.secondary'>
+										{clientInfo.email}
+									</Typography>
+								</Typography>
+								<Typography variant='body1' color='text.primary'>
+									Role:
+									<Typography variant='body1' color='text.secondary'>
+										{clientInfo.role}
+									</Typography>
+								</Typography>
+							</div>
+							<div className="div2">
+								<Typography gutterBottom variant='h4' component='div'>
+									Supply Info
+								</Typography>
+								<Typography variant='body1' color='text.primary'>
+									CUPS:
+									<Typography variant='body1' color='text.secondary'>
+										{supplyPointInfo.cups}
+									</Typography>
+								</Typography>
+								<Typography variant='body1' color='text.primary'>
+									Power 1:
+									<Typography variant='body1' color='text.secondary'>
+										{supplyPointInfo.power.p1}
+									</Typography>
+								</Typography>
+								<Typography variant='body1' color='text.primary'>
+									Power 2:
+									<Typography variant='body1' color='text.secondary'>
+										{supplyPointInfo.power.p1}
+									</Typography>
+								</Typography>
+								<Typography variant='body1' color='text.primary'>
+									Invoiced amount:
+									<Typography variant='body1' color='text.secondary'>
+										{supplyPointInfo.invoiced_amount}
+									</Typography>
+								</Typography>
+								<Typography variant='body1' color='text.primary'>
+									Tariff:
+									<Typography variant='body1' color='text.secondary'>
+										{supplyPointInfo.tariff}
+									</Typography>
+								</Typography>
 
-						<h2>{elligableMsg}</h2>
-						<h2>{offerType}</h2>
-					</div>
+								<div>
+									<Typography variant='body1' color='text.primary'>
+										Seighbours:
+									</Typography>
+									{supplyPointInfo.neighbors.map((neighbour) => {
+										return (
+											<Typography variant='body1' color='text.primary'>
+												Neighbour:
+												<Typography variant='body1' color='text.secondary'>
+													{neighbour}
+												</Typography>
+											</Typography>
+										)
+									})}
+								</div>
+							</div>
+						</CardContent>
+					</Card>
 				</div>
 			)}
 		</div>

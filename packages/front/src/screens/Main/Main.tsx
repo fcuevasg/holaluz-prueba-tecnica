@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { Card } from '../../components/Card/Card'
+import { InfoCard } from '../../components/Card/Card'
 import { Cta } from '../../components/Cta/Cta'
 import { CupsInput } from '../../components/CupsInput/Cupsinput'
 import { ClientData, SupplyPointData } from '../../types/data'
@@ -24,7 +24,7 @@ export const Main: FC = () => {
 			<NavBar></NavBar>
 			<Cta></Cta>
 			<CupsInput dataState={setDataState}></CupsInput>
-			<Card clientInfo={data?.client} hasOffer={data?.hasOffer} isElligible={data?.isElligible} supplyPointInfo={data?.supplyPoint}></Card>
+			<InfoCard clientInfo={data?.client} hasOffer={data?.hasOffer} isElligible={data?.isElligible} supplyPointInfo={data?.supplyPoint}></InfoCard>
 			{data && data.message && <h1>{data.message}</h1>}
 		</div>
 	)
