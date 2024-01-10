@@ -40,7 +40,7 @@ function NavBar() {
 			<Container maxWidth='xl'>
 				<Toolbar disableGutters>
 					<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-						<Avatar alt='Holaluz' src='../front/public/default-profile.png' />
+				
 					</IconButton>
 
 					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

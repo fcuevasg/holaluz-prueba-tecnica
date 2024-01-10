@@ -1,21 +1,21 @@
 # Use the official Node.js image with a specific version as the base
 FROM node:18
-
+ 
 # Set the working directory to /usr/src/app
-WORKDIR /usr/src/app
-
+WORKDIR /app
+ 
 # Copy configuration files and source code
-COPY package*.json tsconfig.json ./
-COPY src ./src
-
+COPY packages/backend/package.json packages/backend/tsconfig.json ./
+COPY packages/backend/src ./src
+ 
 # Install dependencies
 RUN yarn install
-
+ 
 # Compile TypeScript code
 RUN yarn build
-
-# Expose port 3000
-EXPOSE 3001
-
+ 
+# Expose port 3567
+EXPOSE 3567
+ 
 # Run the application when the container starts
-CMD ["yarn", "start"]
+CMD ["node", "/app/dist/app.js"]

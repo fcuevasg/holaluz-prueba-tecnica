@@ -3,7 +3,7 @@ import { ClientData, SupplyPointData } from '../../types/data'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
-import "./styles.scss"
+import './styles.scss'
 interface CardProps {
 	clientInfo?: ClientData
 	supplyPointInfo?: SupplyPointData
@@ -18,15 +18,15 @@ export const InfoCard: FC<CardProps> = ({ clientInfo, supplyPointInfo, hasOffer,
 		<div className='color-box '>
 			{clientInfo && supplyPointInfo && (
 				<div>
-					<Typography gutterBottom variant='h5' component='div'>
+					<Typography gutterBottom variant='h5' textAlign='center' component='div'>
 						{elligableMsg}
 					</Typography>
-					<Typography gutterBottom variant='h5' component='div'>
-						{offerType}
+					<Typography gutterBottom variant='h5' textAlign='center' component='div'>
+						{isElligible ? offerType : ''}
 					</Typography>
-					<Card sx={{ minWidth: 275, width: 500 }}>
-						<CardContent className="parent">
-							<div className="div1">
+					<Card sx={{ minWidth: 275, width: 680 }}>
+						<CardContent className='parent'>
+							<div className='div1'>
 								<Typography gutterBottom variant='h4' component='div'>
 									Client Info
 								</Typography>
@@ -67,7 +67,7 @@ export const InfoCard: FC<CardProps> = ({ clientInfo, supplyPointInfo, hasOffer,
 									</Typography>
 								</Typography>
 							</div>
-							<div className="div2">
+							<div className='div2'>
 								<Typography gutterBottom variant='h4' component='div'>
 									Supply Info
 								</Typography>
@@ -86,7 +86,7 @@ export const InfoCard: FC<CardProps> = ({ clientInfo, supplyPointInfo, hasOffer,
 								<Typography variant='body1' color='text.primary'>
 									Power 2:
 									<Typography variant='body1' color='text.secondary'>
-										{supplyPointInfo.power.p1}
+										{supplyPointInfo.power.p2}
 									</Typography>
 								</Typography>
 								<Typography variant='body1' color='text.primary'>
@@ -104,15 +104,12 @@ export const InfoCard: FC<CardProps> = ({ clientInfo, supplyPointInfo, hasOffer,
 
 								<div>
 									<Typography variant='body1' color='text.primary'>
-										Seighbours:
+										Neighbours:
 									</Typography>
 									{supplyPointInfo.neighbors.map((neighbour) => {
 										return (
-											<Typography variant='body1' color='text.primary'>
-												Neighbour:
-												<Typography variant='body1' color='text.secondary'>
-													{neighbour}
-												</Typography>
+											<Typography variant='body1' color='text.secondary'>
+												{neighbour}
 											</Typography>
 										)
 									})}

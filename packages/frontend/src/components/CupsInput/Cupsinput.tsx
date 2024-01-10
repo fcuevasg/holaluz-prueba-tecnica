@@ -22,7 +22,7 @@ export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 	const sendRequest = async () => {
 		let data
 		try {
-			const response = await fetch('http://localhost:3001/api/clients/' + cups)
+			const response = await fetch('http://localhost:3567/api/clients/' + cups)
 
 			if (response.ok) {
 				// Handle successful response
@@ -40,7 +40,9 @@ export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 
 	//Handlers
 	const handleKeyInput = async (e: React.KeyboardEvent<HTMLInputElement>) => {
+	
 		if (e.key === 'Enter') {
+			e.preventDefault()
 			setsendValue(cups)
 			const { data, message } = await sendRequest()
 			setData({ ...data, message })
@@ -58,6 +60,8 @@ export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 				noValidate
 				autoComplete='off'>
 				<TextField
+					autoFocus
+					
 					InputProps={{
 						startAdornment: (
 							<InputAdornment position='start'>

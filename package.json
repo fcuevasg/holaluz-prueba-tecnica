@@ -4,5 +4,5 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "workspaces": ["packages/front", "packages/back"]
+  "workspaces": ["packages/frontend", "packages/backend"]
 }

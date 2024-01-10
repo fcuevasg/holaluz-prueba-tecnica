@@ -1,5 +1,5 @@
 {
-  "name": "front",
+  "name": "frontend",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
     "@testing-library/react-hooks": "^8.0.1",
+    "@types/jest": "^29.5.11",
     "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
     "babel-jest": "^29.7.0",
