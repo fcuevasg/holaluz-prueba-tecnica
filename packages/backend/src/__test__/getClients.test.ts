@@ -9,13 +9,13 @@ const mockedResponse = { data: { client: { address: 'Potato street, 4', building
 
 describe('GET /clients', () => {
 	it('should return a list of clients', async () => {
-		const response = await request(app).get('/api/getClients?cups=123456')
+		const response = await request(app).get('/api/clients/123456')
 		expect(response.status).toBe(200)
 		expect(response.body).toEqual(mockedResponse)
 	})
 
 	it('should return a well formed client object', async () => {
-		const response = await request(app).get('/api/getClients?cups=123456')
+		const response = await request(app).get('/api/clients/123456')
 		expect(response.body.data.client).toHaveProperty('full_name')
 		expect(response.body.data.client).toHaveProperty('address')
 		expect(response.body.data.client).toHaveProperty('cups')
@@ -25,7 +25,7 @@ describe('GET /clients', () => {
 		expect(response.body.data.client).toHaveProperty('password')
 	})
 	it('should return a well formed client object', async () => {
-		const response = await request(app).get('/api/getClients?cups=123456')
+		const response = await request(app).get('/api/clients/123456')
 		expect(response.body.data.client).toHaveProperty('full_name')
 		expect(response.body.data.client).toHaveProperty('address')
 		expect(response.body.data.client).toHaveProperty('cups')
@@ -37,7 +37,7 @@ describe('GET /clients', () => {
 	})
 
 	it('should return a well formed supplyPoint object', async () => {
-		const response = await request(app).get('/api/getClients?cups=123456')
+		const response = await request(app).get('/api/clients/123456')
 		expect(response.body.data.supplyPoint).toHaveProperty('cups')
 		expect(response.body.data.supplyPoint).toHaveProperty('tariff')
 		expect(response.body.data.supplyPoint).toHaveProperty('invoiced_amount')
@@ -47,19 +47,19 @@ describe('GET /clients', () => {
 	})
 
 	it('should return a well formed power object', async () => {
-		const response = await request(app).get('/api/getClients?cups=123456')
+		const response = await request(app).get('/api/clients/123456')
 		expect(response.body.data.supplyPoint.power).toHaveProperty('p1')
 		expect(response.body.data.supplyPoint.power).toHaveProperty('p2')
 		expect(response.body.data.supplyPoint.power).toEqual(mockedResponse.data.supplyPoint.power)
 	})
 
 	it('should return a well formed neighbors array', async () => {
-		const response = await request(app).get('/api/getClients?cups=123456')
+		const response = await request(app).get('/api/clients/123456')
 		expect(response.body.data.supplyPoint.neighbors).toEqual(mockedResponse.data.supplyPoint.neighbors)
 	})
 
 	it('should return a message if the client does not exist', async () => {
-		const response = await request(app).get('/api/getClients?cups=1234567')
+		const response = await request(app).get('/api/clients/1234567')
 		expect(response.body.message).toEqual('No se ha encontrado el CUPS')
 	})
 })

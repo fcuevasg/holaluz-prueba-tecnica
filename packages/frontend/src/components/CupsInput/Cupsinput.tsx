@@ -6,8 +6,8 @@ import TextField from '@mui/material/TextField'
 import SearchIcon from '@mui/icons-material/Search'
 
 //TODO: change for interface file
-import { DataState } from '../../screens/Main/Main'
 import { InputAdornment } from '@mui/material'
+import { DataState } from '../../types/interfaces'
 
 export interface CupsInputProps {
 	dataState: React.Dispatch<React.SetStateAction<DataState | undefined>>

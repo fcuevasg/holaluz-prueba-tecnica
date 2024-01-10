@@ -5,16 +5,11 @@ import { CupsInput } from '../../components/CupsInput/Cupsinput'
 import { ClientData, SupplyPointData } from '../../types/data'
 import './styles.scss'
 import NavBar from '../../components/Navbar/Navbar'
+import { DataState } from '../../types/interfaces'
 
 //TODO: Move this to interface file
 
-export interface DataState {
-	client: ClientData
-	supplyPoint: SupplyPointData
-	hasOffer: boolean
-	isElligible: boolean
-	message: string
-}
+
 
 export const Main: FC = () => {
 	const dataState = useState<DataState>()
