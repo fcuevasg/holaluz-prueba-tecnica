@@ -2,38 +2,31 @@ import React, { useState } from 'react'
 import { FC } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import './style.scss'
-import { dataState } from '../../App'
+//TODO: change for interface file
+import { DataState } from '../../screens/Main/Main'
 
 export interface CupsInputProps {
-	dataState:  React.Dispatch<React.SetStateAction<dataState | undefined>>
+	dataState: React.Dispatch<React.SetStateAction<DataState | undefined>>
 }
 
 export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 	//States
 	const [cups, setCups] = useState('')
 	const [sendValue, setsendValue] = useState('')
-	const  setData = dataState
+	const setData = dataState
 
 	const sendRequest = async () => {
 		let data
 		try {
-			const response = await fetch(
-				'http://localhost:3001/api/getClients?' +
-					new URLSearchParams({
-						cups: cups,
-					})
-			)
+			const response = await fetch('http://localhost:3001/api/clients/' + cups)
 
 			if (response.ok) {
 				// Handle successful response
 				data = await response.json()
-				console.log(data)
 			} else {
 				// Handle error response
 				console.error('Request failed with status:', response.status)
 			}
-			console.log('FINALLY')
-			console.log(response)
 		} catch (error) {
 			// Handle network error
 			console.error('Request failed:', error)
@@ -47,7 +40,6 @@ export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 			setsendValue(cups)
 			const { data, message } = await sendRequest()
 			setData({ ...data, message })
-			
 		}
 	}
 
@@ -58,12 +50,13 @@ export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 				<input type='text' placeholder='Enter CUPS number' onKeyDown={handleKeyInput} value={cups} onChange={(e) => setCups(e.currentTarget.value)} />
 				<FaSearch
 					className='search-icon'
-					onClick={() => {
-						console.log('search')
+					onClick={async () => {
+						setsendValue(cups)
+						const { data, message } = await sendRequest()
+						setData({ ...data, message })
 					}}
 				/>
 			</div>
-			{sendValue !== '' && <span>{sendValue}</span>}
 		</>
 	)
 }

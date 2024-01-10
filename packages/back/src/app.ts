@@ -15,16 +15,22 @@ app.use(express.json())
 app.use(cors(corsOptions))
 
 // Endpoint POST
-app.get('/api/getClients/', (req: Request, res: Response) => {
+app.get('/api/clients/:id', (req: Request, res: Response) => {
+
+
+	//TODO: move this to a service 
+
 	let neighborsWithMorePower = 0
 	let hasOffer = false
 	let isElligible = false
 	let message = ''
-	const cups = req.query.cups
+	const cups = req.params.id
 	// const selectedClient = clientData.filter((client) => {
 	// 	client.cups !== cups
 	// })
 
+	//TODO: Review this code, maybe is not needed or can be simplified
+	
 	const selectedClient = clientData
 		.map((client) => {
 			if (client.cups === cups) {

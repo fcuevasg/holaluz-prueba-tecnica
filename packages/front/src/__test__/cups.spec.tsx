@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-import { CupsInput } from '../components/cupsInput/Cupsinput'
+import { CupsInput } from '../components/CupsInput/Cupsinput'
 import '@testing-library/jest-dom'
 
 describe('CUPS component', () => {

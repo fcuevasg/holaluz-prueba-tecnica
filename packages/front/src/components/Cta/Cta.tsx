@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 
-const Cta = () => {
+export const Cta = () => {
   return (
     <div className='cta'>
       <h2>Power your rooftop</h2>
@@ -10,4 +10,4 @@ const Cta = () => {
   );
 };
 
-export default Cta;
+

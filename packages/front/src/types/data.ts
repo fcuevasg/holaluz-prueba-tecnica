@@ -13,7 +13,7 @@ interface UserPower {
   p2: string;
 }
 
-export interface supplyPointData{
+export interface SupplyPointData{
   cups: string;
   tariff: string;
   invoiced_amount: string;
