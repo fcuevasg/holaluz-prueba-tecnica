@@ -4,7 +4,7 @@ import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import SearchIcon from '@mui/icons-material/Search'
 import { DataState } from '../../types/interfaces'
-
+import "./styles.scss"
 export interface CupsInputProps {
 	dataState: React.Dispatch<React.SetStateAction<DataState | undefined>>
 }
@@ -46,11 +46,11 @@ export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 	}
 
 	return (
-		<>
+		<div className='CUPSinput'>
 			<Box
 				component='form'
 				sx={{
-					'& > :not(style)': { m: 1, width: '30ch' },
+					'& > :not(style)': { m: 1, width: '600px' },
 				}}
 				noValidate
 				autoComplete='off'>
@@ -68,6 +68,6 @@ export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 					onChange={(e) => setCups(e.currentTarget.value)}
 				/>
 			</Box>
-		</>
+		</div>
 	)
 }

@@ -14,19 +14,20 @@ interface CardProps {
 
 export const InfoCard: FC<CardProps> = ({ clientInfo, supplyPointInfo, hasOffer, isElligible }) => {
 	
-	const elligableMsg = isElligible ? 'You can become part of the root revolution with the offer:' : 'You are not elligle to our rooftop products, sorry'
+	const elligableMsg = isElligible ? 'You can become part of the rooftop revolution with the offer:' : 'You are not elligible to our rooftop products, sorry'
 	const offerType = hasOffer ? 'Basic discount, 5% discount ' : 'Standard offer, no discount'
 
 	return (
 		<div className='color-box '>
 			{clientInfo && supplyPointInfo && (
-				<div>
-					<Typography gutterBottom variant='h5' textAlign='center' component='div'>
+				<div className="elligible">
+					<Typography gutterBottom variant='h6' textAlign='center' component='div'>
 						{elligableMsg}
 					</Typography>
-					<Typography gutterBottom variant='h5' textAlign='center' component='div'>
+					<Typography gutterBottom variant='h6' textAlign='center' component='div'>
 						{isElligible ? offerType : ''}
 					</Typography>
+					<br></br>
 					<Card sx={{ minWidth: 275, width: 680 }}>
 						<CardContent className='parent'>
 							<div className='div1'>
