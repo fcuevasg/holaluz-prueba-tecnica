@@ -14,7 +14,6 @@ let corsOptions = {
 app.use(express.json())
 app.use(cors(corsOptions))
 
-// Endpoint POST
 app.get('/api/clients/:id', (req: Request, res: Response) => {
 	const cups = req.params.id;
 

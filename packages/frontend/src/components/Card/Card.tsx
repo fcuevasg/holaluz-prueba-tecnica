@@ -4,6 +4,7 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import './styles.scss'
+
 interface CardProps {
 	clientInfo?: ClientData
 	supplyPointInfo?: SupplyPointData
@@ -12,8 +13,10 @@ interface CardProps {
 }
 
 export const InfoCard: FC<CardProps> = ({ clientInfo, supplyPointInfo, hasOffer, isElligible }) => {
+	
 	const elligableMsg = isElligible ? 'You can become part of the root revolution with the offer:' : 'You are not elligle to our rooftop products, sorry'
 	const offerType = hasOffer ? 'Basic discount, 5% discount ' : 'Standard offer, no discount'
+
 	return (
 		<div className='color-box '>
 			{clientInfo && supplyPointInfo && (

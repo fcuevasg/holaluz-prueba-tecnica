@@ -18,6 +18,7 @@ export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 	const sendRequest = async () => {
 		let data
 		try {
+			//This URL should be a ENV variable and the input should be sanitized for safety
 			const response = await fetch('http://localhost:3567/api/clients/' + cups)
 
 			if (response.ok) {
