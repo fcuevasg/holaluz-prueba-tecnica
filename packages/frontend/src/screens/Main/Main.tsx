@@ -1,15 +1,7 @@
 import React, { FC, useState } from 'react'
-import { InfoCard } from '../../components/Card/Card'
-import { Cta } from '../../components/Cta/Cta'
-import { CupsInput } from '../../components/CupsInput/Cupsinput'
-import { ClientData, SupplyPointData } from '../../types/data'
 import './styles.scss'
-import NavBar from '../../components/Navbar/Navbar'
 import { DataState } from '../../types/interfaces'
-
-//TODO: Move this to interface file
-
-
+import { Cta, CupsInput, InfoCard, NavBar } from '../../components'
 
 export const Main: FC = () => {
 	const dataState = useState<DataState>()

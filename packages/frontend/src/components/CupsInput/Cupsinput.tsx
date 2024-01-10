@@ -2,11 +2,7 @@ import React, { useState } from 'react'
 import { FC } from 'react'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
-
 import SearchIcon from '@mui/icons-material/Search'
-
-//TODO: change for interface file
-import { InputAdornment } from '@mui/material'
 import { DataState } from '../../types/interfaces'
 
 export interface CupsInputProps {
@@ -48,7 +44,6 @@ export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 		}
 	}
 
-	// TODO: needs to call the backend and show the data
 	return (
 		<>
 			<Box
