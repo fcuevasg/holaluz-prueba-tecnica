@@ -9,9 +9,6 @@ COPY packages/frontend/ ./
 RUN yarn install
 RUN yarn build 
  
-# Copy project files
-COPY packages/frontend/dist/ ./dist
- 
 # Stage 2: Serve the application using NGINX
 FROM nginx:alpine
  

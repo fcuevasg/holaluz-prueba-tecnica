@@ -12,5 +12,4 @@ describe('CUPS component', () => {
 		expect(headingElement).toBeInTheDocument()
 	})
 
-	// Add more test cases here...
 })

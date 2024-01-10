@@ -40,7 +40,6 @@ export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 
 	//Handlers
 	const handleKeyInput = async (e: React.KeyboardEvent<HTMLInputElement>) => {
-	
 		if (e.key === 'Enter') {
 			e.preventDefault()
 			setsendValue(cups)
@@ -61,13 +60,8 @@ export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 				autoComplete='off'>
 				<TextField
 					autoFocus
-					
 					InputProps={{
-						startAdornment: (
-							<InputAdornment position='start'>
-								<SearchIcon />
-							</InputAdornment>
-						),
+						startAdornment: <SearchIcon />,
 					}}
 					id='Cups'
 					label='CUPS number'
