@@ -4,6 +4,7 @@ import { Cta } from '../../components/Cta/Cta'
 import { CupsInput } from '../../components/CupsInput/Cupsinput'
 import { ClientData, SupplyPointData } from '../../types/data'
 import './styles.scss'
+import NavBar from '../../components/Navbar/Navbar'
 
 //TODO: Move this to interface file
 
@@ -20,6 +21,7 @@ export const Main: FC = () => {
 	const [data, setDataState] = dataState
 	return (
 		<div className='anim-grad-box'>
+			<NavBar></NavBar>
 			<Cta></Cta>
 			<CupsInput dataState={setDataState}></CupsInput>
 			<Card clientInfo={data?.client} hasOffer={data?.hasOffer} isElligible={data?.isElligible} supplyPointInfo={data?.supplyPoint}></Card>

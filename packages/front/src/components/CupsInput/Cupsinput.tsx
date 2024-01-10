@@ -2,6 +2,12 @@ import React, { useState } from 'react'
 import { FC } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import './style.scss'
+
+import Box from '@mui/material/Box'
+import TextField from '@mui/material/TextField'
+
+import SearchIcon from '@mui/icons-material/Search'
+
 //TODO: change for interface file
 import { DataState } from '../../screens/Main/Main'
 
@@ -46,17 +52,23 @@ export const CupsInput: FC<CupsInputProps> = ({ dataState }) => {
 	// TODO: needs to call the backend and show the data
 	return (
 		<>
-			<div className='input-container cups-input'>
-				<input type='text' placeholder='Enter CUPS number' onKeyDown={handleKeyInput} value={cups} onChange={(e) => setCups(e.currentTarget.value)} />
-				<FaSearch
-					className='search-icon'
-					onClick={async () => {
-						setsendValue(cups)
-						const { data, message } = await sendRequest()
-						setData({ ...data, message })
-					}}
-				/>
-			</div>
+			<Box
+				component='form'
+				sx={{
+					'& > :not(style)': { m: 1, width: '25ch' },
+				}}
+				noValidate
+				autoComplete='off'>
+				<TextField id='Cups' label='CUPS number' variant='outlined' placeholder='Enter CUPS number' onKeyDown={handleKeyInput} value={cups} onChange={(e) => setCups(e.currentTarget.value)} />
+				<SearchIcon></SearchIcon>
+			</Box>
 		</>
 	)
 }
+
+/*
+onClick={async () => {
+						setsendValue(cups)
+						const { data, message } = await sendRequest()
+						setData({ ...data, message })
+					}}*/
