@@ -39,9 +39,7 @@ function NavBar() {
 		<AppBar position='static' style={{ background: 'linear-gradient(90deg, rgba(255,198,33,1) 0%, rgba(240,107,24,1) 50%, rgba(229,0,126,1) 100%)' }}>
 			<Container maxWidth='xl'>
 				<Toolbar disableGutters>
-					<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-				
-					</IconButton>
+					<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}></IconButton>
 
 					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
 						<IconButton size='large' aria-label='account of current user' aria-controls='menu-appbar' aria-haspopup='true' onClick={handleOpenNavMenu} color='inherit'>
